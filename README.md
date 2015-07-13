@@ -21,7 +21,7 @@ rosmake
 
 ### Configuration:
 * Replace the comminted websocket uri in file the web-interfac/3markers_Multi.html with your agents uri
-**for example
+. for example:
 ```
 var ros_R1 = new ROSLIB.Ros({
     //  url : 'ws://YOUR_FIRST_AGENT_URI:9090'
@@ -36,7 +36,7 @@ var ros_R1 = new ROSLIB.Ros({
 rosrun using_markers basic_shapes
 ```
 
-*Run web-interfac/3markers_Multi.html on your browser
+*Run web-interface/3markers_Multi.html on your browser
 
 
 
