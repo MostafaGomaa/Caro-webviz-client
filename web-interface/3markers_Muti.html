@@ -25,7 +25,11 @@
 <script>
   function init() {
 
-   
+   //Use the Rosbridge instance that has the markers topic published.  
+  var ros_marker = new ROSLIB.Ros({
+      url : 'ws://localhost:1010'
+    });
+    
 
      // Connect to ROSbridge of each agent.
     var ros_R1 = new ROSLIB.Ros({
@@ -41,15 +45,7 @@
     });
 
 
-  //Use the Rosbridge instance that has the markers topic published.  
-  var ros_marker = new ROSLIB.Ros({
-      url : 'ws://localhost:9090'
-    });
-    
-    //If it was already instialized just do not create a new instace
-    //var ros_marker = ros_R1
   
-
 
      // Setup a client to listen to TFs.
     var tfClient_R1 = new ROSLIB.TFClient({
@@ -137,8 +133,6 @@ console.log("Making a marker client.....");
       topic : '/visualization_marker',
       rootObject : viewer.scene
     });
-
-
 
 
   }
