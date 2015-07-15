@@ -30,6 +30,11 @@ cd Caro-webviz-client
 git clone https://github.com/RobotWebTools/rosbridge_suite
 cd rosbridge_suite
 git checkout fuerte-devel
+````
+
+Change the line 33 in ../rosbridge_suite/rosbridge_library/src/rosbridge_library/internal/pngcompression.py
+to (from PIL import image).
+````
 rosmake
 ```
 
