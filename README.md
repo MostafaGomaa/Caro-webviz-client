@@ -37,8 +37,7 @@ rosmake
 
 ** Roscore
 ```
-export ROS_MASTER_URI= localhost:11011
-roscore
+roscore -p 11011
 ```
 
 ** Rosbridge on a free port
