@@ -39,10 +39,12 @@ int main( int argc, char** argv )
   ros::init(argc, argv, "basic_shapes");
   ros::NodeHandle n;
   ros::Rate r(1);
-  ros::Publisher marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
+  ros::Publisher marker_pub1 = n.advertise<visualization_msgs::Marker>("visualization_marker_R1", 1);
+  ros::Publisher marker_pub2 = n.advertise<visualization_msgs::Marker>("visualization_marker_R2", 1);
+  ros::Publisher marker_pub3 = n.advertise<visualization_msgs::Marker>("visualization_marker_R3", 1);
 // %EndTag(INIT)%
 
-  // Set our initial shape type to be a cube
+  // Set our initial shape type to be a ARROQ
 // %Tag(SHAPE_INIT)%
   uint32_t shape = visualization_msgs::Marker::ARROW;
 // %EndTag(SHAPE_INIT)%
@@ -50,62 +52,112 @@ int main( int argc, char** argv )
 // %Tag(MARKER_INIT)%
   while (ros::ok())
   {
-    visualization_msgs::Marker marker;
+    visualization_msgs::Marker marker1;
+    visualization_msgs::Marker marker2;
+    visualization_msgs::Marker marker3;
     // Set the frame ID and timestamp.  See the TF tutorials for information on these.
-    marker.header.frame_id = "/my_frame";
-    marker.header.stamp = ros::Time::now();
+    marker1.header.frame_id = "/my_frame";
+    marker1.header.stamp = ros::Time::now();
+    marker2.header.frame_id = "/my_frame";
+    marker2.header.stamp = ros::Time::now();
+    marker3.header.frame_id = "/my_frame";
+    marker3.header.stamp = ros::Time::now();
 // %EndTag(MARKER_INIT)%
 
     // Set the namespace and id for this marker.  This serves to create a unique ID
     // Any marker sent with the same namespace and id will overwrite the old one
 // %Tag(NS_ID)%
-    marker.ns = "basic_shapes";
-    marker.id = 0;
+    marker1.ns = "basic_shapes";
+    marker1.id = 0;
+    marker2.ns = "basic_shapes";
+    marker2.id = 1;
+    marker3.ns = "basic_shapes";
+    marker3.id = 2;
 // %EndTag(NS_ID)%
 
     // Set the marker type.  Initially this is CUBE, and cycles between that and SPHERE, ARROW, and CYLINDER
 // %Tag(TYPE)%
-    marker.type = shape;
+    marker1.type = shape;
+    marker2.type = shape;
+    marker3.type = shape;
 // %EndTag(TYPE)%
 
     // Set the marker action.  Options are ADD, DELETE, and new in ROS Indigo: 3 (DELETEALL)
 // %Tag(ACTION)%
-    marker.action = visualization_msgs::Marker::ADD;
+    marker1.action = visualization_msgs::Marker::ADD;
+    marker2.action = visualization_msgs::Marker::ADD;
+    marker3.action = visualization_msgs::Marker::ADD;
 // %EndTag(ACTION)%
 
     // Set the pose of the marker.  This is a full 6DOF pose relative to the frame/time specified in the header
 // %Tag(POSE)%
-    marker.pose.position.x = 0;
-    marker.pose.position.y = 0;
-    marker.pose.position.z = 0;
-    marker.pose.orientation.x = 0.0;
-    marker.pose.orientation.y = 0.0;
-    marker.pose.orientation.z = 0.0;
-    marker.pose.orientation.w = 1.0;
+    marker1.pose.position.x = 0;
+    marker1.pose.position.y = 0;
+    marker1.pose.position.z = 0;
+    marker1.pose.orientation.x = 0.0;
+    marker1.pose.orientation.y = 0.0;
+    marker1.pose.orientation.z = 0.0;
+    marker1.pose.orientation.w = 1.0;
+     marker1.pose.position.x = 0;
+    marker2.pose.position.y = 0;
+    marker2.pose.position.z = 0;
+    marker2.pose.orientation.x = 0.0;
+    marker2.pose.orientation.y = 0.0;
+    marker2.pose.orientation.z = 0.0;
+    marker2.pose.orientation.w = 1.0;
+     marker3.pose.position.x = 0;
+    marker3.pose.position.y = 0;
+    marker3.pose.position.z = 0;
+    marker3.pose.orientation.x = 0.0;
+    marker3.pose.orientation.y = 0.0;
+    marker3.pose.orientation.z = 0.0;
+    marker3.pose.orientation.w = 1.0;
 // %EndTag(POSE)%
 
     // Set the scale of the marker -- 1x1x1 here means 1m on a side
 // %Tag(SCALE)%
-    marker.scale.x = 0.35;
-    marker.scale.y = 0.35;
-    marker.scale.z = 0.35;
+    marker1.scale.x = 0.35;
+    marker1.scale.y = 0.35;
+    marker1.scale.z = 0.35;
+    
+    marker2.scale.x = 0.35;
+    marker2.scale.y = 0.35;
+    marker2.scale.z = 0.35;
+    
+    marker3.scale.x = 0.35;
+    marker3.scale.y = 0.35;
+    marker3.scale.z = 0.35;
+    
+
 // %EndTag(SCALE)%
 
     // Set the color -- be sure to set alpha to something non-zero!
 // %Tag(COLOR)%
-    marker.color.r = 0.0f;
-    marker.color.g = 1.0f;
-    marker.color.b = 0.0f;
-    marker.color.a = 1.0;
+    marker1.color.r = 1.0f;
+    marker1.color.g = 0.0f;
+    marker1.color.b = 0.0f;
+    marker1.color.a = 1.0;
+
+     marker2.color.r = 0.0f;
+    marker2.color.g = 1.0f;
+    marker2.color.b = 0.0f;
+    marker2.color.a = 1.0;
+
+     marker3.color.r = 0.0f;
+    marker3.color.g = 0.0f;
+    marker3.color.b = 1.0f;
+    marker3.color.a = 1.0;
 // %EndTag(COLOR)%
 
 // %Tag(LIFETIME)%
-    marker.lifetime = ros::Duration();
+    marker1.lifetime = ros::Duration();
+    marker2.lifetime = ros::Duration();
+    marker3.lifetime = ros::Duration();
 // %EndTag(LIFETIME)%
 
     // Publish the marker
 // %Tag(PUBLISH)%
-    while (marker_pub.getNumSubscribers() < 1)
+    while (marker_pub1.getNumSubscribers() < 1)
     {
       if (!ros::ok())
       {
@@ -114,7 +166,29 @@ int main( int argc, char** argv )
       ROS_WARN_ONCE("Please create a subscriber to the marker");
       sleep(1);
     }
-    marker_pub.publish(marker);
+    marker_pub1.publish(marker1);
+
+      while (marker_pub2.getNumSubscribers() < 1)
+    {
+      if (!ros::ok())
+      {
+        return 0;
+      }
+      ROS_WARN_ONCE("Please create a subscriber to the marker");
+      sleep(1);
+    }
+    marker_pub2.publish(marker2);
+
+      while (marker_pub3.getNumSubscribers() < 1)
+    {
+      if (!ros::ok())
+      {
+        return 0;
+      }
+      ROS_WARN_ONCE("Please create a subscriber to the marker");
+      sleep(1);
+    }
+    marker_pub3.publish(marker3);
 // %EndTag(PUBLISH)%
 
     // Cycle between different shapes

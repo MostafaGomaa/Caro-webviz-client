@@ -27,21 +27,24 @@
 
    //Use the Rosbridge instance that has the markers topic published.  
   var ros_marker = new ROSLIB.Ros({
-      url : 'ws://localhost:1010'
+      url : 'ws://localhost:5050'
     });
     
 
      // Connect to ROSbridge of each agent.
     var ros_R1 = new ROSLIB.Ros({
     //  url : 'ws://YOUR_FIRST_AGENT_URI:9090'
+      url : 'ws://localhost:9090'
     });
 
     var ros_R2= new ROSLIB.Ros({
-      //  url : 'ws://YOUR_SECOND_AGENT_URI:9090'
+      //  url : 'ws://YOUR_FIRST_AGENT_URI:9090'
+      url : 'ws://localhost:8080'
     });
 
     var ros_R3 = new ROSLIB.Ros({
-    //  url : 'ws://YOUR_THIRD_AGENT_URI:9090'
+      //  url : 'ws://YOUR_FIRST_AGENT_URI:9090'
+    url : 'ws://localhost:7070'
     });
 
 
@@ -111,7 +114,7 @@ console.log("Making a marker client.....");
     var markerClient = new ROS3D.MarkerClient({
       ros : ros_marker,
       tfClient : tfClient_R1,
-      topic : '/visualization_marker',
+      topic : '/visualization_marker_R1',
       rootObject : viewer.scene
     });
 
@@ -120,7 +123,7 @@ console.log("Making a marker client.....");
     var markerClient = new ROS3D.MarkerClient({
       ros : ros_marker,
       tfClient : tfClient_R2,
-      topic : '/visualization_marker',
+      topic : '/visualization_marker_R2',
       rootObject : viewer.scene
     });
 
@@ -130,7 +133,7 @@ console.log("Making a marker client.....");
     var markerClient = new ROS3D.MarkerClient({
       ros : ros_marker,
       tfClient : tfClient_R3,
-      topic : '/visualization_marker',
+      topic : '/visualization_marker_R3',
       rootObject : viewer.scene
     });
 
