@@ -22,9 +22,9 @@ rosmake
 ```
 
 ### Setup the simple marker:
-* Here we chose to run the marker node on a separate RosCore hosted on the client side and setup a Rosbrdige server to communicate with it. This should save the bandwidth required to communicate the markers information from beening sent by each agent decreasing the network communication needed. Only brawback is the configration overhead needed to setup a RosCore and a Rosbridge instance on the client side.
+* Here we chose to run the marker node on a separate RosCore hosted on the client side and setup a Rosbrdige server to communicate with it. This should save the bandwidth required to communicate the markers information from beeing sent by each agent decreasing the network communication needed. Only brawback is the configration overhead needed to setup a RosCore and a Rosbridge instance on the client side.
 
-Setup the rosbride (similare to whats donein [Caro-webviz-server](https://github.com/MostafaGomaa/Caro-webviz-server/blob/master/README.md) ) on the client side in case you dont already have one.
+Setup the rosbride (similare to whats done in [Caro-webviz-server](https://github.com/MostafaGomaa/Caro-webviz-server/blob/master/README.md) ) on the client side in case you dont already have one.
 
 * Run the RoseCore, Rosbridge and the simple_markers on the client side. Run each on a seperate terminal.
 
@@ -47,14 +47,13 @@ export ROS_MASTER_URI= localhost:11011
 rosrun using_markers basic_shapes
 ```
 
-###Incase client each agent on a separate machine.
 
-### Configuration:
-* Replace the comminted websocket uri in file the web-interfac/3markers_Multi.html with your agents uri and the rosbridge_server port.
+### Configuration the web interface:
+* From web-interfac/3markers_Multi.html. Replace the comminted websocket uri with your agent's rosbride uri.
 . for example:
 ```
 var ros_R1 = new ROSLIB.Ros({
-//  url : 'ws://YOUR_FIRST_AGENT_URI:ROSBRIDGE_SERVERPORT'
+//  url : 'ws://YOUR_FIRST_AGENT_IP:ROSBRIDGE_SERVERPORT'
     url : 'ws://enterprise.kbsg.rwth-aachen.de:9090'
 
 ```
