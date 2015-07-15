@@ -24,7 +24,14 @@ rosmake
 ### Setup the simple marker:
 * Here we chose to run the marker node on a separate RosCore hosted on the client side and setup a Rosbrdige server to communicate with it. This should save the bandwidth required to communicate the markers information from beeing sent by each agent decreasing the network communication needed. Only brawback is the configration overhead needed to setup a RosCore and a Rosbridge instance on the client side.
 
-Setup the rosbride (similare to whats done in [Caro-webviz-server](https://github.com/MostafaGomaa/Caro-webviz-server/blob/master/README.md) ) on the client side in case you dont already have one.
+* In case you dont already have a rosbridge on the client side, Setup the rosbride (similar to whats done in [Caro-webviz-server](https://github.com/MostafaGomaa/Caro-webviz-server/) ) on the client side.
+ ```
+cd Caro-webviz-client
+git clone https://github.com/RobotWebTools/rosbridge_suite
+cd rosbridge_suite
+git checkout fuerte-devel
+rosmake
+```
 
 * Run the RoseCore, Rosbridge and the simple_markers on the client side. Run each on a seperate terminal.
 
