@@ -27,7 +27,7 @@
 
    
 
-     // Connect to ROS.
+     // Connect to ROSbridge of each agent.
     var ros_R1 = new ROSLIB.Ros({
     //  url : 'ws://YOUR_FIRST_AGENT_URI:9090'
     });
@@ -40,13 +40,15 @@
     //  url : 'ws://YOUR_THIRD_AGENT_URI:9090'
     });
 
-  //Use the roscore that has the markers topic published.  
-  
+
+  //Use the Rosbridge instance that has the markers topic published.  
   var ros_marker = new ROSLIB.Ros({
       url : 'ws://localhost:9090'
     });
     
-    //If it is the same as one of the above RosCore (for example if running on the same machine) Set it to that ros core
+    //If it was already instialized just do not create a new instace
+    //var ros_marker = ros_R1
+  
 
 
      // Setup a client to listen to TFs.
