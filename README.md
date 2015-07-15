@@ -6,8 +6,8 @@ The Web interface using Ros3D.js and some required packages
 https://drive.google.com/file/d/0BwzXji2vQ585S3NrdGFDd2xvTVU/view?usp=sharing
 
 ##Packages
-* web-interface: contains the web interfaces and the JavaScript used
-* [using_markers] a Ros node that creates a simple markers to be used in the visulization. The marker topic is published on the client Ros to save bandwidth (which means that the client should have Ros installed).
+* [web-interface] (web-interface): contains the web interfaces and the JavaScript used
+* [using_markers] (using_markers) a Ros node that creates a simple markers to be used in the visulization. The marker topic is published on the client Ros to save bandwidth (which means that the client should have Ros installed).
 
 ###Installation:
 * Add your directory that contains the packages as a $ROS_PACKAGE_PATH in the .bashrc
