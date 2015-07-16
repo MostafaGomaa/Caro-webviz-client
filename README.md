@@ -47,7 +47,8 @@ rosmake
 ### Configuration the web interface:
 * From web-interfac/3markers_Multi.html. Replace the comminted websocket uri with your agent's rosbride uri.
 . for example:
-~~//  url : 'ws://YOUR_FIRST_AGENT_IP:ROSBRIDGE_SERVERPORT'~~
+
+~~  //url : 'ws://YOUR_FIRST_AGENT_IP:ROSBRIDGE_SERVERPORT' ~~
 ```
 var ros_R1 = new ROSLIB.Ros({
     url : 'ws://enterprise.kbsg.rwth-aachen.de:9090'
