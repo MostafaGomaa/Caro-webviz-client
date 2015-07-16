@@ -38,33 +38,18 @@ to (from PIL import image).
 rosmake
 ```
 
-* Run the RoseCore, Rosbridge and the simple_markers on the client side. Run each on a seperate terminal.
-
-** Roscore
+* Run the RoseCore, Rosbridge and the simple_markers on the client side by simply running the script launch_client.bash
+(The script launches RosCore on port 11011, Rosbridge on port 5050)
 ```
-roscore -p 11011
+../Caro-webviz-client/./launch_client.bash
 ```
-
-** Rosbridge on a free port
-```
-export ROS_MASTER_URI= localhost:11011
-rosparam set /rosbridge/port 1010
-rosrun rosbridge_server rosbridge.py
-```
-
-** Simple_markers
-```
-export ROS_MASTER_URI= localhost:11011
-rosrun using_markers basic_shapes
-```
-
 
 ### Configuration the web interface:
 * From web-interfac/3markers_Multi.html. Replace the comminted websocket uri with your agent's rosbride uri.
 . for example:
 ```
 var ros_R1 = new ROSLIB.Ros({
-//  url : 'ws://YOUR_FIRST_AGENT_IP:ROSBRIDGE_SERVERPORT'
+~~//  url : 'ws://YOUR_FIRST_AGENT_IP:ROSBRIDGE_SERVERPORT'~~
     url : 'ws://enterprise.kbsg.rwth-aachen.de:9090'
 
 ```
